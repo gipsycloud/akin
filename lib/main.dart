@@ -1,7 +1,15 @@
 import 'package:akin/home.dart';
+import 'package:akin/model/user.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  // Initialize hive
+  await Hive.initFlutter();
+  // Registering the adapter
+  Hive.registerAdapter(UserAdapter());
+  // open the databox
+  await Hive.openBox('userBox');
   runApp(const MyApp());
 }
 
