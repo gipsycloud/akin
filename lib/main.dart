@@ -1,5 +1,6 @@
-import 'package:akin/home.dart';
+// import 'package:akin/home.dart';
 import 'package:akin/model/user.dart';
+import 'package:akin/order.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const Order(),
     );
   }
 }
