@@ -1,6 +1,7 @@
 import 'package:akin/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 
 class AddPersonForm extends StatefulWidget {
   const AddPersonForm({Key? key}) : super(key: key);
@@ -13,11 +14,13 @@ class _AddPersonFormState extends State<AddPersonForm> {
   final _usernameController = TextEditingController();
   final _phonenumberController = TextEditingController();
   final _amountController = TextEditingController();
-  final _createddateController =
-      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
+  final _createddateController = DateTime.now();
+  // DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
   final _userFormKey = GlobalKey<FormState>();
 
   late final Box box;
+
+  TextEditingController dateinput = TextEditingController();
 
   String? _fieldValidator(String? value) {
     if (value == null || value.isEmpty) {
@@ -54,19 +57,53 @@ class _AddPersonFormState extends State<AddPersonForm> {
         TextFormField(
           controller: _usernameController,
           validator: _fieldValidator,
+          autofocus: true,
+          // inputFormatters: [],
         ),
         const SizedBox(height: 24.0),
         const Text('Phone Number'),
         TextFormField(
           controller: _phonenumberController,
           validator: _fieldValidator,
+          keyboardType: TextInputType.number,
         ),
+        const SizedBox(height: 24.0),
         const Text('Amount'),
         TextFormField(
           controller: _amountController,
           validator: _fieldValidator,
+          keyboardType: TextInputType.number,
         ),
+        const SizedBox(height: 24.0),
         const Text('Date Time'),
+        TextFormField(
+          controller: dateinput,
+          decoration: const InputDecoration(
+              icon: Icon(Icons.calendar_today), labelText: 'Enter Date'),
+          readOnly: true,
+          onTap: () async {
+            DateTime? pickedDate = await showDatePicker(
+                context: context,
+                cancelText: 'Not now',
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2101));
+            if (pickedDate != null) {
+              // ignore: avoid_print
+              print('pickedDate' + pickedDate.toString());
+              String formattedDate =
+                  DateFormat('yyyy-MM-dd').format(pickedDate);
+              // ignore: avoid_print
+              print('formattedDate' + formattedDate);
+              setState(() {
+                dateinput.text = formattedDate;
+              });
+            } else {
+              // ignore: avoid_print
+              print('Date is not selected');
+            }
+          },
+        ),
         const Spacer(),
         Padding(
           padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 24.0),
@@ -87,3 +124,5 @@ class _AddPersonFormState extends State<AddPersonForm> {
     );
   }
 }
+
+// https://stackoverflow.com/questions/63346008/flutter-dart-format-date-in-input-form

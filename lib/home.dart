@@ -2,6 +2,7 @@ import 'package:akin/add_screen.dart';
 import 'package:akin/update_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -48,7 +49,6 @@ class _HomeState extends State<Home> {
     //  Get reference to an already opened box
     userBox = Hive.box('userBox');
   }
-
   // @override
   // void dispose() {
   //   // closes all hive boxes
@@ -93,7 +93,8 @@ class _HomeState extends State<Home> {
                     ),
                     child: ListTile(
                       title: Text(userData.username),
-                      subtitle: Text(userData.phonenumber),
+                      subtitle: Text(DateFormat('yyyy-MM-dd')
+                          .format(userData.createdDate)),
                       trailing: IconButton(
                         onPressed: () => _deleteInfo(index),
                         icon: const Icon(
@@ -113,3 +114,5 @@ class _HomeState extends State<Home> {
 
 
 // https://blog.logrocket.com/handling-local-data-persistence-flutter-hive/
+
+// https://blog.logrocket.com/how-when-force-flutter-widget-rebuild/#updating-orders
