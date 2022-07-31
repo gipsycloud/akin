@@ -21,21 +21,30 @@ class Details extends StatelessWidget {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: product.color,
-      elevation: 0,
+      elevation: 0.0,
       leading: IconButton(
         icon: SvgPicture.asset(
           'assets/icons/back.svg',
+          width: 25.0,
           color: Colors.white,
         ),
         onPressed: () => Navigator.pop(context),
       ),
       actions: <Widget>[
         IconButton(
-          icon: SvgPicture.asset("assets/icons/search.svg"),
+          icon: SvgPicture.asset(
+            "assets/icons/search.svg",
+            width: 23.0,
+            color: Colors.white,
+          ),
           onPressed: () {},
         ),
         IconButton(
-          icon: SvgPicture.asset("assets/icons/shopping-cart.svg"),
+          icon: SvgPicture.asset(
+            "assets/icons/shopping-cart.svg",
+            width: 23.0,
+            color: Colors.white,
+          ),
           onPressed: () {},
         ),
         const SizedBox(width: kDefaultPadding / 2)
