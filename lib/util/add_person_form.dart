@@ -18,6 +18,9 @@ class _AddPersonFormState extends State<AddPersonForm> {
   // DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
   final _userFormKey = GlobalKey<FormState>();
 
+  Function? onSubmit;
+  Function? onChange;
+
   late final Box box;
 
   TextEditingController dateinput = TextEditingController();
@@ -58,6 +61,9 @@ class _AddPersonFormState extends State<AddPersonForm> {
           controller: _usernameController,
           validator: _fieldValidator,
           autofocus: true,
+          onFieldSubmitted:
+              onSubmit?.call(), // Using ?.call to check if null before calling
+          onChanged: onChange?.call(),
           // inputFormatters: [],
         ),
         const SizedBox(height: 24.0),
@@ -66,6 +72,9 @@ class _AddPersonFormState extends State<AddPersonForm> {
           controller: _phonenumberController,
           validator: _fieldValidator,
           keyboardType: TextInputType.number,
+          onFieldSubmitted:
+              onSubmit?.call(), // Using ?.call to check if null before calling
+          onChanged: onChange?.call(),
         ),
         const SizedBox(height: 24.0),
         const Text('Amount'),
@@ -73,10 +82,16 @@ class _AddPersonFormState extends State<AddPersonForm> {
           controller: _amountController,
           validator: _fieldValidator,
           keyboardType: TextInputType.number,
+          onFieldSubmitted:
+              onSubmit?.call(), // Using ?.call to check if null before calling
+          onChanged: onChange?.call(),
         ),
         const SizedBox(height: 24.0),
         const Text('Date Time'),
         TextFormField(
+          onFieldSubmitted:
+              onSubmit?.call(), // Using ?.call to check if null before calling
+          onChanged: onChange?.call(),
           controller: dateinput,
           decoration: const InputDecoration(
               icon: Icon(Icons.calendar_today), labelText: 'Enter Date'),

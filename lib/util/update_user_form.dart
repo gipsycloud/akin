@@ -27,6 +27,8 @@ class _UpdateUserFormState extends State<UpdateUserForm> {
   late final _createddateController =
       DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
   late final Box box;
+  Function? onSubmit;
+  Function? onChange;
 
   String? _fieldValidator(String? value) {
     if (value == null || value.isEmpty) {
@@ -70,6 +72,9 @@ class _UpdateUserFormState extends State<UpdateUserForm> {
             TextFormField(
               controller: _usernameController,
               validator: _fieldValidator,
+              onFieldSubmitted: onSubmit
+                  ?.call(), // Using ?.call to check if null before calling
+              onChanged: onChange?.call(),
             ),
             const SizedBox(
               height: 24.0,
@@ -78,10 +83,20 @@ class _UpdateUserFormState extends State<UpdateUserForm> {
             TextFormField(
               controller: _phonenumberController,
               validator: _fieldValidator,
+              onFieldSubmitted: onSubmit
+                  ?.call(), // Using ?.call to check if null before calling
+              onChanged: onChange?.call(),
             ),
+            const SizedBox(
+              height: 24.0,
+            ),
+            const Text('Amount'),
             TextFormField(
               controller: _amountController,
               validator: _fieldValidator,
+              onFieldSubmitted: onSubmit
+                  ?.call(), // Using ?.call to check if null before calling
+              onChanged: onChange?.call(),
             ),
             const Spacer(),
             Padding(
