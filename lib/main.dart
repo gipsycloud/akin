@@ -1,8 +1,11 @@
-// import 'package:akin/home.dart';
 import 'package:akin/model/user.dart';
-import 'package:akin/order.dart';
+import 'package:akin/table/table_screen.dart';
+import 'package:akin/widget/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:akin/home.dart';
+// import 'package:akin/order.dart';
 
 void main() async {
   // Initialize hive
@@ -34,8 +37,14 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+
+        textTheme:
+            GoogleFonts.dmSansTextTheme().apply(displayColor: kTextColor),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const Order(),
+      home: const Tablescreen(
+        tables: [],
+      ),
     );
   }
 }
