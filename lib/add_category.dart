@@ -1,5 +1,5 @@
-import 'package:akin/add_screen.dart';
-import 'package:akin/update_screen.dart';
+import 'package:akin/order/add_screen.dart';
+import 'package:akin/order/update_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';

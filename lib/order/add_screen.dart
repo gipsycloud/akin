@@ -1,4 +1,4 @@
-import 'package:akin/util/add_person_form.dart';
+import 'package:akin/order/add_person_form.dart';
 import 'package:flutter/material.dart';
 
 class AddScreen extends StatefulWidget {

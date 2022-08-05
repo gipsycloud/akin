@@ -1,5 +1,5 @@
 import 'package:akin/model/user.dart';
-import 'package:akin/util/update_user_form.dart';
+import 'package:akin/order/update_user_form.dart';
 import 'package:flutter/material.dart';
 
 class UpdateScreen extends StatefulWidget {
