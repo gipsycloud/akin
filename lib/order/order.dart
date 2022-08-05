@@ -2,7 +2,6 @@ import 'package:akin/add_category.dart';
 import 'package:akin/model/product.dart';
 import 'package:akin/order/item_card.dart';
 import 'package:akin/screen/details.dart';
-import 'package:akin/order/item_card.dart';
 import 'package:akin/widget/constants.dart';
 import 'package:flutter/material.dart';
 
