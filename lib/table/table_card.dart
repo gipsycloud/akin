@@ -1,6 +1,5 @@
-import 'package:akin/model/table.dart';
-// import 'package:akin/table/table_one.dart';
-import 'package:akin/table/table_screen.dart';
+import 'package:akin/model/table_data.dart';
+import 'package:akin/table/table_order.dart';
 import 'package:flutter/material.dart';
 
 class TableCard extends StatelessWidget {
@@ -18,27 +17,43 @@ class TableCard extends StatelessWidget {
             colors: [Colors.purple, Colors.blue]),
       ),
       child: Container(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2),
-          itemCount: tables.length,
+          itemCount: tabledata.length,
           itemBuilder: (context, index) {
+            // return Image.asset(tables[index].image);
             return ElevatedButton(
               onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) =>
-                            Tablescreen(tables: tables[index]))));
+                        builder: (context) => TableOrder(
+                              data: tabledata[index],
+                            )));
               },
-              child: Text(
-                (tables[index].title),
-                style: const TextStyle(
-                    fontSize: 24.0, fontWeight: FontWeight.bold),
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          (tabledata[index].title),
+                          style: const TextStyle(
+                              fontSize: 24.0, fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
             );
-            // return Image.asset(tables[index].image);
           },
         ),
       ),
