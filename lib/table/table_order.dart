@@ -12,21 +12,31 @@ class TableOrder extends StatefulWidget {
 
 class _TableOrderState extends State<TableOrder> {
   @override
-  Widget build(
-    BuildContext context,
-  ) {
-    return Scaffold(
-      backgroundColor: widget.data.color,
-      appBar: buildAppBar(context),
-      body: Body(
-        data: widget.data,
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: buildAppBar(context),
+        body: Body(
+          data: widget.data,
+        ),
       ),
+      // backgroundColor: widget.data.color,
+      // appBar: buildAppBar(context),
     );
   }
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       title: Text(widget.data.title),
+      bottom: const TabBar(tabs: <Widget>[
+        Tab(
+          text: "Product",
+        ),
+        Tab(
+          text: "CheckOut",
+        )
+      ]),
       elevation: 0.0,
     );
   }

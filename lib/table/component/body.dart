@@ -12,8 +12,24 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(children: <Widget>[Text(widget.data.title)]),
-    );
+    return const Scaffold(
+        // body: Column(children: <Widget>[Text(widget.data.title)]),
+        );
+
+    // return DefaultTabController(
+    //     length: 2,
+    //     child: Scaffold(
+    //       appBar: AppBar(
+    //         title: Text(widget.data.title),
+    //         bottom: const TabBar(tabs: <Widget>[
+    //           Tab(
+    //             text: "Products",
+    //           ),
+    //           Tab(
+    //             text: 'CheckOut',
+    //           )
+    //         ]),
+    //       ),
+    //     ));
   }
 }
