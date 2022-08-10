@@ -17,3 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 
 
 // https://www.youtube.com/watch?v=8uLI8ade1aA
+
+// Making Banner Design
+https://www.canva.com/create/banners/
+
+https://medium.com/@arief_platk/fpos-point-of-sales-app-flutter-redux-35cad9958f2c
