@@ -1,3 +1,4 @@
+import 'package:akin/model/product.dart';
 import 'package:akin/model/table_data.dart';
 import 'package:akin/table/table_order.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ class TableCard extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => TableOrder(
                             data: tabledata[index],
+                            products: products[index],
                           )));
             },
             child: Card(
@@ -53,7 +55,7 @@ class TableCard extends StatelessWidget {
                         style: const TextStyle(
                             fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

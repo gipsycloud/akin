@@ -22,3 +22,7 @@ samples, guidance on mobile development, and a full API reference.
 https://www.canva.com/create/banners/
 
 https://medium.com/@arief_platk/fpos-point-of-sales-app-flutter-redux-35cad9958f2c
+
+https://www.youtube.com/c/TheTechBrothers1/videos
+
+https://www.youtube.com/watch?v=K8d3qqbP3qk (two tabbar menu (item, checkout))

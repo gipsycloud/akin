@@ -1,10 +1,15 @@
+import 'package:akin/model/product.dart';
 import 'package:akin/model/table_data.dart';
-import 'package:akin/table/component/body.dart';
+import 'package:akin/table/component/akin_item.dart';
+import 'package:akin/table/component/checkoutscreen.dart';
+// import 'package:akin/table/component/body.dart';
 import 'package:flutter/material.dart';
 
 class TableOrder extends StatefulWidget {
   final TableData data;
-  const TableOrder({Key? key, required this.data}) : super(key: key);
+  final Product products;
+  const TableOrder({Key? key, required this.data, required this.products})
+      : super(key: key);
 
   @override
   State<TableOrder> createState() => _TableOrderState();
@@ -17,12 +22,11 @@ class _TableOrderState extends State<TableOrder> {
       length: 2,
       child: Scaffold(
         appBar: buildAppBar(context),
-        body: Body(
-          data: widget.data,
-        ),
+        body: TabBarView(children: <Widget>[
+          AkinItem(data: widget.data, products: products),
+          CheckOutScreen(data: widget.data, products: widget.products),
+        ]),
       ),
-      // backgroundColor: widget.data.color,
-      // appBar: buildAppBar(context),
     );
   }
 
