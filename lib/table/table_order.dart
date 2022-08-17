@@ -42,6 +42,11 @@ class _TableOrderState extends State<TableOrder> {
             sum: sum = sum,
           ),
         ]),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          label: Text("Total : $sum"),
+          // icon: const Icon(Icons.add),
+        ),
       ),
     );
   }
