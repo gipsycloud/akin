@@ -26,3 +26,5 @@ https://medium.com/@arief_platk/fpos-point-of-sales-app-flutter-redux-35cad9958f
 https://www.youtube.com/c/TheTechBrothers1/videos
 
 https://www.youtube.com/watch?v=K8d3qqbP3qk (two tabbar menu (item, checkout))
+
+https://blog.logrocket.com/building-shopping-cart-flutter/ (flutter cart system for ecommerce)

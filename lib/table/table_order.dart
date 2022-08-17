@@ -2,7 +2,6 @@ import 'package:akin/model/product.dart';
 import 'package:akin/model/table_data.dart';
 import 'package:akin/table/component/akin_item.dart';
 import 'package:akin/table/component/checkoutscreen.dart';
-// import 'package:akin/table/component/body.dart';
 import 'package:flutter/material.dart';
 
 class TableOrder extends StatefulWidget {
@@ -16,6 +15,9 @@ class TableOrder extends StatefulWidget {
 }
 
 class _TableOrderState extends State<TableOrder> {
+  List<Product> cart = [];
+  int sum = 0;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -23,8 +25,22 @@ class _TableOrderState extends State<TableOrder> {
       child: Scaffold(
         appBar: buildAppBar(context),
         body: TabBarView(children: <Widget>[
-          AkinItem(data: widget.data, products: products),
-          CheckOutScreen(data: widget.data, products: widget.products),
+          AkinItem(
+              data: widget.data,
+              products: products,
+              valueSetter: (Product value) {
+                setState(() {
+                  cart.add(value);
+                  sum = 0;
+                  for (var element in cart) {
+                    sum = sum + element.price;
+                  }
+                });
+              }),
+          CheckOutScreen(
+            cart: cart,
+            sum: sum = sum,
+          ),
         ]),
       ),
     );
