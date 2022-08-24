@@ -40,23 +40,21 @@ class TableCard extends StatelessWidget {
                             products: products[index],
                           )));
             },
-            child: Card(
-              elevation: 4.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        (tabledata[index].title),
-                        style: const TextStyle(
-                            fontSize: 24.0, fontWeight: FontWeight.bold),
-                      ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      (tabledata[index].title),
+                      style: const TextStyle(
+                          fontSize: 24.0, fontWeight: FontWeight.bold),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),

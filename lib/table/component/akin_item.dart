@@ -1,5 +1,6 @@
 import 'package:akin/model/product.dart';
 import 'package:akin/model/table_data.dart';
+// import 'package:akin/screen/body.dart';
 import 'package:flutter/material.dart';
 
 class AkinItem extends StatelessWidget {
@@ -15,39 +16,48 @@ class AkinItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: ((context, index) {
-          return Card(
-            color: Colors.blueGrey.shade100,
-            elevation: 3.0,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ListTile(
-                title: RichText(
-                  overflow: TextOverflow.ellipsis,
-                  text: TextSpan(
-                      text: products[index].title,
-                      style: TextStyle(
-                          color: Colors.blueGrey.shade800,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0)),
-                ),
-                trailing: Text("${products[index].price} Ks",
-                    style: const TextStyle(
-                        color: Colors.redAccent,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  valueSetter(products[index]);
-                },
-              ),
-            ),
-          );
-        }),
-        separatorBuilder: (context, index) {
-          return const Divider();
-        },
-        itemCount: products.length);
+    return Scaffold(
+      body: Column(children: <Widget>[
+        // Container(
+        //   height: 100.0,
+        //   color: Colors.red,
+        // ),
+        Expanded(
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemBuilder: ((context, index) {
+              return Card(
+                color: Colors.blueGrey.shade100,
+                // elevation: 3.0,
+                child: ListTile(
+                    title: RichText(
+                      overflow: TextOverflow.ellipsis,
+                      text: TextSpan(
+                          text: products[index].title,
+                          style: TextStyle(
+                              color: Colors.blueGrey.shade800,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0)),
+                    ),
+                    trailing: Text(
+                      "${products[index].price} Ks",
+                    ),
+                    onTap: () {
+                      valueSetter(products[index]);
+                    }),
+              );
+            }),
+            itemCount: products.length,
+            separatorBuilder: (BuildContext context, int index) {
+              return const Divider();
+            },
+          ),
+        ),
+        Container(
+          color: Colors.blue,
+          height: 43.0,
+        )
+      ]),
+    );
   }
 }

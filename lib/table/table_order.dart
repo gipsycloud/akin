@@ -43,10 +43,14 @@ class _TableOrderState extends State<TableOrder> {
           ),
         ]),
         floatingActionButton: FloatingActionButton.extended(
+          shape: const StadiumBorder(
+              side: BorderSide(
+                  color: Color.fromARGB(255, 255, 255, 255), width: 2)),
           onPressed: () {},
           label: Text("Total : $sum"),
           // icon: const Icon(Icons.add),
         ),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       ),
     );
   }

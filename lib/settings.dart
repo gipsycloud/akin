@@ -9,8 +9,41 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  late ScrollController controller;
+  List<String> items = List.generate(50, (index) => '$index');
+
+  @override
+  void initState() {
+    super.initState();
+    controller = ScrollController()..addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    controller.removeListener(_scrollListener);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: ListView.builder(
+        controller: controller,
+        itemBuilder: (context, index) {
+          return Text(items[index]);
+        },
+        itemCount: items.length,
+      ),
+    );
+  }
+
+  void _scrollListener() {
+    // ignore: avoid_print
+    print(controller.position.extentAfter);
+    if (controller.position.extentAfter < 500) {
+      setState(() {
+        items.addAll(List.generate(50, (index) => 'item $index'));
+      });
+    }
   }
 }
