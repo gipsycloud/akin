@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AKiN'),
+        title: const Text('AKiN / add_category.dart'),
         leading: const Icon(Icons.fastfood_outlined),
         actions: <Widget>[
           IconButton(
