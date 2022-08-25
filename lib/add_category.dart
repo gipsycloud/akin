@@ -1,5 +1,6 @@
 import 'package:akin/order/add_screen.dart';
 import 'package:akin/order/update_screen.dart';
+import 'package:akin/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
@@ -60,7 +61,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('aKin'),
+        title: const Text('AKiN / add_category.dart'),
+        leading: const Icon(Icons.fastfood_outlined),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Settings()));
+              },
+              icon: const Icon(Icons.settings))
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).push(
