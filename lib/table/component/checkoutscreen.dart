@@ -44,7 +44,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
           color: Colors.blue,
           height: 43.0,
           width: MediaQuery.of(context).size.width,
-          child: Text("Total : \$${widget.sum}"),
+          // child: Text("Total : \$${widget.sum}"),
         ),
       ],
     );

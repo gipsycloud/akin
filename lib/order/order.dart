@@ -1,7 +1,7 @@
-import 'package:akin/add_category.dart';
 import 'package:akin/model/product.dart';
 import 'package:akin/order/item_card.dart';
 import 'package:akin/screen/details.dart';
+import 'package:akin/settings.dart';
 import 'package:akin/widget/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -18,12 +18,12 @@ class _OrderState extends State<Order> {
     return Scaffold(
         appBar: AppBar(
           leading: const Icon(Icons.tag_faces_sharp),
-          title: const Text('AKiN'),
+          title: const Text('AKiN / Order.dart'),
           actions: <Widget>[
             IconButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Home()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Settings()));
                 },
                 icon: const Icon(Icons.menu))
           ],

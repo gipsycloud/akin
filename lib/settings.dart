@@ -1,49 +1,105 @@
+import 'package:akin/order/order.dart';
 import 'package:flutter/material.dart';
-// import 'package:hive_flutter/hive_flutter.dart';
 
-class Settings extends StatefulWidget {
+class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
-
-  @override
-  State<Settings> createState() => _SettingsState();
-}
-
-class _SettingsState extends State<Settings> {
-  late ScrollController controller;
-  List<String> items = List.generate(50, (index) => '$index');
-
-  @override
-  void initState() {
-    super.initState();
-    controller = ScrollController()..addListener(_scrollListener);
-  }
-
-  @override
-  void dispose() {
-    controller.removeListener(_scrollListener);
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        controller: controller,
-        itemBuilder: (context, index) {
-          return Text(items[index]);
+      appBar: AppBar(
+        title: const Text('Setting'),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Order()));
+              },
+              icon: const Icon(Icons.settings))
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        //Floating action button on Scaffold
+        onPressed: () {
+          //code to execute on button press
         },
-        itemCount: items.length,
+        child: const Icon(Icons.send), //icon inside button
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      //floating action button position to center
+
+      bottomNavigationBar: BottomAppBar(
+        //bottom navigation bar on scaffold
+        color: Colors.redAccent,
+        shape: const CircularNotchedRectangle(), //shape of notch
+        notchMargin:
+            5, //notche margin between floating button and bottom appbar
+        child: Row(
+          //children inside bottom appbar
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.sync,
+                color: Colors.white,
+              ),
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
-
-  void _scrollListener() {
-    // ignore: avoid_print
-    print(controller.position.extentAfter);
-    if (controller.position.extentAfter < 500) {
-      setState(() {
-        items.addAll(List.generate(50, (index) => 'item $index'));
-      });
-    }
-  }
 }
+
+// import 'package:flutter/material.dart';
+// // import 'package:hive_flutter/hive_flutter.dart';
+
+// class Settings extends StatefulWidget {
+//   const Settings({Key? key}) : super(key: key);
+
+//   @override
+//   State<Settings> createState() => _SettingsState();
+// }
+
+// class _SettingsState extends State<Settings> {
+//   late ScrollController controller;
+//   List<String> items = List.generate(50, (index) => '$index');
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     controller = ScrollController()..addListener(_scrollListener);
+//   }
+
+//   @override
+//   void dispose() {
+//     controller.removeListener(_scrollListener);
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: ListView.builder(
+//         controller: controller,
+//         itemBuilder: (context, index) {
+//           return Text(items[index]);
+//         },
+//         itemCount: items.length,
+//       ),
+//     );
+//   }
+
+//   void _scrollListener() {
+//     // ignore: avoid_print
+//     print(controller.position.extentAfter);
+//     if (controller.position.extentAfter < 500) {
+//       setState(() {
+//         items.addAll(List.generate(50, (index) => 'item $index'));
+//       });
+//     }
+//   }
+// }
