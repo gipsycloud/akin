@@ -29,3 +29,6 @@ https://www.youtube.com/watch?v=K8d3qqbP3qk (two tabbar menu (item, checkout))
 
 https://blog.logrocket.com/building-shopping-cart-flutter/ (flutter cart system for ecommerce)
 1 https://blog.logrocket.com/handling-local-data-persistence-flutter-hive/
+
+Delete Function
+- https://stackoverflow.com/questions/66593403/how-to-delete-an-item-from-cart
