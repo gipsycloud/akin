@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class CheckOutScreen extends StatefulWidget {
@@ -41,11 +43,25 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
           ),
         ),
         Container(
-          color: Colors.blue,
-          height: 43.0,
-          width: MediaQuery.of(context).size.width,
-          // child: Text("Total : \$${widget.sum}"),
-        ),
+            color: Colors.blue,
+            height: 43.0,
+            width: MediaQuery.of(context).size.width,
+            child: OutlineButton(
+              onPressed: () {
+                // ignore: avoid_print
+                print('Order Now');
+              },
+              child: const Text(
+                'Order Now',
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ),
+            )
+            // child: RaisedButton(
+            //   color: Theme.of(context).accentColor,
+            //   child: const Text('data'),
+            //   onPressed: () {},
+            //)
+            ),
       ],
     );
   }
