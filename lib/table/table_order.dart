@@ -40,6 +40,20 @@ class _TableOrderState extends State<TableOrder> {
           CheckOutScreen(
             cart: cart,
             sum: sum = sum,
+            valueDeleter: (Product value) {
+              setState(() {
+                for (var i = 0; i < cart.length; i++) {
+                  if (cart[i].title == value.title) {
+                    cart.removeAt(i);
+                    break;
+                  }
+                }
+                sum = 0;
+                for (var element in cart) {
+                  sum = sum + element.price;
+                }
+              });
+            },
           ),
         ]),
         floatingActionButton: FloatingActionButton.extended(
