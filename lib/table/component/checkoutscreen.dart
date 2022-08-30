@@ -67,13 +67,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 'Order Now',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
-            )
-            // child: RaisedButton(
-            //   color: Theme.of(context).accentColor,
-            //   child: const Text('data'),
-            //   onPressed: () {},
-            //)
-            ),
+            )),
       ],
     );
   }

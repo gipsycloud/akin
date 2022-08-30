@@ -1,5 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:akin/order/order.dart';
 import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
+// import 'package:overlay_support/overlay_support.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
@@ -22,6 +26,28 @@ class Settings extends StatelessWidget {
         //Floating action button on Scaffold
         onPressed: () {
           //code to execute on button press
+          showOverlayNotification((context) {
+            return Card(
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              child: SafeArea(
+                child: ListTile(
+                  leading: SizedBox.fromSize(
+                      size: const Size(40, 40),
+                      child: ClipOval(
+                          child: Container(
+                        color: Colors.black,
+                      ))),
+                  title: const Text('FilledStacks'),
+                  subtitle: const Text('Thanks for checking out my tutorial'),
+                  trailing: IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () {
+                        OverlaySupportEntry.of(context)?.dismiss();
+                      }),
+                ),
+              ),
+            );
+          }, duration: const Duration(milliseconds: 4000));
         },
         child: const Icon(Icons.send), //icon inside button
       ),

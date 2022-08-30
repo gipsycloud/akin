@@ -32,3 +32,6 @@ https://blog.logrocket.com/building-shopping-cart-flutter/ (flutter cart system 
 
 Delete Function
 - https://stackoverflow.com/questions/66593403/how-to-delete-an-item-from-cart
+
+In App Notification
+- https://medium.com/flutter-community/in-app-notifications-in-flutter-9c1e92ea10b3
