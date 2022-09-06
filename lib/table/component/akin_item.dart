@@ -2,6 +2,7 @@ import 'package:akin/model/product.dart';
 import 'package:akin/model/table_data.dart';
 // import 'package:akin/screen/body.dart';
 import 'package:flutter/material.dart';
+// import 'package:overlay_support/overlay_support.dart';
 
 class AkinItem extends StatelessWidget {
   final ValueSetter<Product> valueSetter;
@@ -18,10 +19,6 @@ class AkinItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: <Widget>[
-        // Container(
-        //   height: 100.0,
-        //   color: Colors.red,
-        // ),
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,

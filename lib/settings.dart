@@ -3,10 +3,31 @@
 import 'package:akin/order/order.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
-// import 'package:overlay_support/overlay_support.dart';
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
+
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  // The indicator will show up when _isLoading = true.
+  // The button will be unpressable, too.
+  bool _isLoading = false;
+
+  //This function will be triggered when the button is pressed
+  void _startLoading() async {
+    setState(() {
+      _isLoading = true;
+    });
+    // Wait for 3 seconds
+    // You can replace this with your own task like fetching data, processing images, etc
+    await Future.delayed(const Duration(seconds: 3));
+    setState(() {
+      _isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +43,17 @@ class Settings extends StatelessWidget {
               icon: const Icon(Icons.settings))
         ],
       ),
+      body: Center(
+          child: ElevatedButton.icon(
+              onPressed: _isLoading ? null : _startLoading,
+              style: ElevatedButton.styleFrom(fixedSize: const Size(300, 100)),
+              icon: _isLoading
+                  ? const CircularProgressIndicator()
+                  : const Icon(Icons.add),
+              label: Text(
+                _isLoading ? 'Loading ...' : 'Start',
+                style: const TextStyle(fontSize: 30.0),
+              ))),
       floatingActionButton: FloatingActionButton(
         //Floating action button on Scaffold
         onPressed: () {
@@ -34,11 +66,12 @@ class Settings extends StatelessWidget {
                   leading: SizedBox.fromSize(
                       size: const Size(40, 40),
                       child: ClipOval(
-                          child: Container(
-                        color: Colors.black,
+                          child: Image.asset(
+                        'assets/images/one.png',
+                        fit: BoxFit.cover,
                       ))),
-                  title: const Text('FilledStacks'),
-                  subtitle: const Text('Thanks for checking out my tutorial'),
+                  title: const Text('Add New Items in Checkout'),
+                  // subtitle: const Text('Thanks for checking out my tutorial'),
                   trailing: IconButton(
                       icon: const Icon(Icons.close),
                       onPressed: () {
